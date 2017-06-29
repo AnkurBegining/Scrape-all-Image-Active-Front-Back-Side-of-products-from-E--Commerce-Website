@@ -1,10 +1,7 @@
-from urllib.request import urlopen as uReq
-from bs4 import BeautifulSoup as soup
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 import time
+
+from bs4 import BeautifulSoup as soup
+from selenium import webdriver
 
 # Open browser and get data
 browser = webdriver.Firefox()
@@ -31,3 +28,8 @@ for i in range(0, 50):
 
 # Parse html
 page_soup = soup(browser.page_source, "html5lib")
+
+'''Grab all products'''
+
+containers = page_soup.find_all("div", {"class": "product"})
+print("Number of watches found:: ", len(containers))
