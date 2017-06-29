@@ -23,3 +23,11 @@ for i in range(0, 50):
         browser.find_element_by_link_text("Show more products").click()
     except:
         pass
+
+
+
+
+'''HTML PARSING'''
+
+# Parse html
+page_soup = soup(browser.page_source, "html5lib")
